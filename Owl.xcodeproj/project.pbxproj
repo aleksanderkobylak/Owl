@@ -97,6 +97,7 @@
 		6478952E227F5099005F983F /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6478952C227F5091005F983F /* Extras.swift */; };
 		647DD9862296DF9600288935 /* CatalogItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 647DD9852296DF9600288935 /* CatalogItemCell.xib */; };
 		8933C7901EB5B82D000D00A4 /* OwlTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8933C7891EB5B82A000D00A4 /* OwlTests.swift */; };
+		8BF07C8A240ECC5A00DF647B /* ContextMenuConfigurationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF07C89240ECC5A00DF647B /* ContextMenuConfigurationProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,7 @@
 		6478952C227F5091005F983F /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
 		647DD9852296DF9600288935 /* CatalogItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatalogItemCell.xib; sourceTree = "<group>"; };
 		8933C7891EB5B82A000D00A4 /* OwlTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OwlTests.swift; sourceTree = "<group>"; };
+		8BF07C89240ECC5A00DF647B /* ContextMenuConfigurationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextMenuConfigurationProtocol.swift; sourceTree = "<group>"; };
 		AD2FAA261CD0B6D800659CF4 /* Owl.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Owl.plist; sourceTree = "<group>"; };
 		AD2FAA281CD0B6E100659CF4 /* OwlTests.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = OwlTests.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -293,6 +295,7 @@
 				641CD9C322789E5C00C88886 /* CollectionCellAdapterProtocol.swift */,
 				641CD9C122789E5C00C88886 /* CollectionDirector+Support.swift */,
 				641CD9C222789E5C00C88886 /* CollectionHeaderFooterProtocol.swift */,
+				8BF07C89240ECC5A00DF647B /* ContextMenuConfigurationProtocol.swift */,
 			);
 			path = "Protocols & Supports";
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				641CD9DB22789E8F00C88886 /* UICollectionView+Support.swift in Sources */,
 				641CD9C522789E5C00C88886 /* CollectionHeaderFooterProtocol.swift in Sources */,
 				641CD9CD22789E7C00C88886 /* CollectionCellAdapter+Events.swift in Sources */,
+				8BF07C8A240ECC5A00DF647B /* ContextMenuConfigurationProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

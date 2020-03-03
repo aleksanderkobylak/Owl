@@ -132,7 +132,19 @@ public class CollectionCellAdapter<Model: ElementRepresentable, Cell: ReusableVi
 		case .shouldSpringLoad:
 			return events.shouldSpringLoad?(CollectionCellAdapter.Event(element: model, cell: cell, path: path))
 			
-		}
+		case .contextMenuConfiguration:
+                return events.contextMenuConfiguration?(
+                    CollectionCellAdapter.Event(element: model, cell: cell, path: path),
+                    params.first as! CGPoint
+                )
+        /// - TODO: Implement
+        case .previewForHighlightingContextMenu:
+            break
+        case .previewForDismissingContextMenu:
+            break
+        case .willPerformPreviewAction:
+            break
+        }
 
 		return nil
 	}

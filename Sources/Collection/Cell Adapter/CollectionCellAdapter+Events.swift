@@ -83,6 +83,8 @@ public extension CollectionCellAdapter {
 		public var prefetch: ((_ items: [Model], _ paths: [IndexPath]) -> Void)? = nil
 		public var cancelPrefetch: ((_ items: [Model], _ paths: [IndexPath]) -> Void)? = nil
 		public var shouldSpringLoad: ((Event) -> Bool)? = nil
+        public var contextMenuConfiguration: ((Event, _ point: CGPoint) -> ContextMenuConfiguration?)? = nil
+
 	}
 
 }
@@ -108,4 +110,8 @@ public enum CollectionAdapterEventID: Int {
 	case prefetch
 	case cancelPrefetch
 	case shouldSpringLoad
+    case contextMenuConfiguration
+    case previewForHighlightingContextMenu
+    case previewForDismissingContextMenu
+    case willPerformPreviewAction
 }
