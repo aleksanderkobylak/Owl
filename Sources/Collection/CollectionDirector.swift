@@ -465,17 +465,37 @@ public extension CollectionDirector {
 
     @available(iOS 13.0, *)
     func collectionView(_ collectionView: UICollectionView, previewForHighlightingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
-        return nil
+
+        guard let indexPath = (configuration.identifier as? NSIndexPath) as IndexPath? else {
+            return nil
+        }
+        
+        let (model, adapter) = self.context(forItemAt: indexPath)
+        
+        return adapter.dispatchEvent(.previewForHighlightingContextMenu, model: model, cell: nil, path: nil, params: indexPath, configuration) as? UITargetedPreview
     }
     
     @available(iOS 13.0, *)
     func collectionView(_ collectionView: UICollectionView, previewForDismissingContextMenuWithConfiguration configuration: UIContextMenuConfiguration) -> UITargetedPreview? {
-        return nil
+        
+        guard let indexPath = (configuration.identifier as? NSIndexPath) as IndexPath? else {
+            return nil
+        }
+        
+        let (model, adapter) = self.context(forItemAt: indexPath)
+        
+        return adapter.dispatchEvent(.previewForDismissingContextMenu, model: model, cell: nil, path: nil, params: indexPath, configuration) as? UITargetedPreview
     }
     
     @available(iOS 13.0, *)
     func collectionView(_ collectionView: UICollectionView, willPerformPreviewActionForMenuWith configuration: UIContextMenuConfiguration, animator: UIContextMenuInteractionCommitAnimating) {
+        guard let indexPath = (configuration.identifier as? NSIndexPath) as IndexPath? else {
+            return
+        }
         
+        let (model, adapter) = self.context(forItemAt: indexPath)
+        
+        adapter.dispatchEvent(.previewForDismissingContextMenu, model: model, cell: nil, path: nil, params: indexPath, configuration, animator)
     }
     
 	// MARK: - Actions -

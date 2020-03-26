@@ -84,9 +84,10 @@ public extension CollectionCellAdapter {
 		public var cancelPrefetch: ((_ items: [Model], _ paths: [IndexPath]) -> Void)? = nil
 		public var shouldSpringLoad: ((Event) -> Bool)? = nil
         public var contextMenuConfiguration: ((Event, _ point: CGPoint) -> ContextMenuConfiguration?)? = nil
-
-	}
-
+        public var previewForHighlightingContextMenu: ((Event, _ indexPath: IndexPath, _ configuration: ContextMenuConfiguration) -> TargetedPreview?)? = nil
+        public var previewForDismissingContextMenu: ((Event, _ indexPath: IndexPath, _ configuration: ContextMenuConfiguration) -> TargetedPreview?)? = nil
+        public var willPerformPreviewAction: ((Event, _ indexPath: IndexPath, _ configuration: ContextMenuConfiguration, _ animator: Any? /*UIContextMenuInteractionCommitAnimating available on iOS 13*/) -> Void)? = nil
+    }
 }
 
 public enum CollectionAdapterEventID: Int {

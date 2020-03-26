@@ -133,17 +133,42 @@ public class CollectionCellAdapter<Model: ElementRepresentable, Cell: ReusableVi
 			return events.shouldSpringLoad?(CollectionCellAdapter.Event(element: model, cell: cell, path: path))
 			
 		case .contextMenuConfiguration:
-                return events.contextMenuConfiguration?(
-                    CollectionCellAdapter.Event(element: model, cell: cell, path: path),
-                    params.first as! CGPoint
-                )
-        /// - TODO: Implement
+            return events.contextMenuConfiguration?(
+                CollectionCellAdapter.Event(element: model, cell: cell, path: path),
+                params.first as! CGPoint
+            )
+        
         case .previewForHighlightingContextMenu:
-            break
+            guard let indexPath = params.first as? IndexPath,
+                  let configuration = params.last as? ContextMenuConfiguration
+            else { return nil }
+            
+            return events.previewForHighlightingContextMenu?(
+                CollectionCellAdapter.Event(element: model, cell: cell, path: path),
+                indexPath, configuration
+            )
+        
+            /// - TODO: Implement
         case .previewForDismissingContextMenu:
-            break
+            guard let indexPath = params.first as? IndexPath,
+                  let configuration = params.last as? ContextMenuConfiguration
+            else { return nil }
+            
+            return events.previewForDismissingContextMenu?(
+                CollectionCellAdapter.Event(element: model, cell: cell, path: path),
+                indexPath, configuration
+            )
         case .willPerformPreviewAction:
-            break
+            guard params.count == 3,
+                  let indexPath = params.first as? IndexPath,
+                  let configuration = params[1] as? ContextMenuConfiguration,
+                  let animator = params.last
+            else { return nil }
+            
+            events.willPerformPreviewAction?(
+                CollectionCellAdapter.Event(element: model, cell: cell, path: path),
+                indexPath, configuration, animator
+            )
         }
 
 		return nil
